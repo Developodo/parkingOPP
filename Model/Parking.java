@@ -4,7 +4,7 @@ import java.util.Arrays;
 
 public class Parking {
     private String name;
-    Car[] cars;
+    private Car[] cars;
 
     public Parking(String name, int tam){
         this.name = name;
@@ -38,13 +38,28 @@ public class Parking {
      * @return true si no hay huecos disponibles
      */
     public boolean isFull(){
-        return false;
+        return howManyCars()==cars.length;
+       /* boolean result=true;
+        for(int i=0;i<cars.length&&result;i++){
+            if(cars[i]==null){
+                result=false;
+            }
+        }
+        return result;*/
     }
     public int howManyCars(){
-        return 0;
+        int result = 0;
+        for(Car car:cars){
+            if(car!=null){
+                result++;
+            }
+        }
+        return result;
     }
     public int searchCar(String license){
-        return 0;
+        int pos=-1;
+
+        return pos;
     }
     public int parkCar(Car car){
         return 0;
