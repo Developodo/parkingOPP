@@ -58,14 +58,53 @@ public class Parking {
     }
     public int searchCar(String license){
         int pos=-1;
-
+        for(int i=0;i<cars.length&&pos==-1;i++){
+            if(cars[i]!=null) {
+                if (cars[i].getLicense().equals(license)) { //==
+                    pos = i;
+                }
+            }
+        }
         return pos;
     }
     public int parkCar(Car car){
-        return 0;
+        int pos=-1;
+        if(!isFull()){
+            for(int i=0;i<cars.length&&pos==-1;i++){
+                if(cars[i]==null) {
+                    //hay hueco
+                    cars[i]=car;    //aparcar el coche
+                    pos=i;
+                }
+            }
+        }
+        return pos;
+        /**
+         * pos = searFirstSpot();
+         * if(pos>-1){
+         *  cars[pos]=car;
+         * }
+         */
     }
     public Car unParkCar(String license){
-        return null;
+        Car car=null;
+        int pos = searchCar(license);
+        if(pos>-1){
+            car = cars[pos];
+            cars[pos]=null; //dejo mi parking libre
+        }
+        return car;
     }
-
+    public int searFirstSpot(){
+        int pos=-1;
+        for(int i=0;i<cars.length&&pos==-1;i++){
+            if(cars[i]==null) {
+                    pos = i;
+            }
+        }
+        return pos;
+    }
+    public int moveCar(String license, int pos){
+        return -1;
+    }
 }
