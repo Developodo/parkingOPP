@@ -69,7 +69,7 @@ public class Parking {
     }
     public int parkCar(Car car){
         int pos=-1;
-        if(!isFull()){
+        if(!isFull() && searchCar(car.getLicense())==-1){
             for(int i=0;i<cars.length&&pos==-1;i++){
                 if(cars[i]==null) {
                     //hay hueco
