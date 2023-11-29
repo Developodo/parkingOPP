@@ -30,10 +30,9 @@ public class MainController {
                     int nCars = parking.howManyCars();
                     if(nCars==0){
                         System.out.println("No hay coches");
-                    }else if(nCars==1){ //ternaria
-                        System.out.println("Hay 1 coche");
                     }else{
-                        System.out.println("Hay "+nCars+" coches");
+                        System.out.println("Hay "+nCars+" coche"+
+                                (nCars>1?"s":""));
                     }
                     break;
             case 3:
